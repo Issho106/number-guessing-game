@@ -1,7 +1,8 @@
 function generateRandomNumber() {
     return Number(Math.round(Math.random() * 100) + 1);
-}
+} //Random number between 1 - 100
 
+//main game logic with counter
 function game() {
     let randomNr = generateRandomNumber();
     let count = 10;
@@ -32,6 +33,7 @@ function game() {
     }
 }
 
+//winning condition logic
 function checkGuess(_guess, _answer){
 
     if (_guess > _answer) {
@@ -43,6 +45,7 @@ function checkGuess(_guess, _answer){
     return "CORRECT!";
 }
 
+//repeatedly asks player to enter a valid number or character to exit
 function getPlayerGuess() {
     let isInvalid;
     let guess;
@@ -51,7 +54,7 @@ function getPlayerGuess() {
         let input = prompt("Guess a number between 1-100 (Type any character to exit):");
         guess = Number(input);
         if(guess < 1 || guess > 100){
-            console.log("Make sure you choose a number between 1 - 100");
+            console.log("Make sure you choose a valid number between 1 - 100");
             isInvalid = true;
         } else if (guess === null) {
             console.log("Please enter a number to guess, or any character to exit.");
@@ -62,7 +65,7 @@ function getPlayerGuess() {
     return guess;
 }
 
-
+//Main logic
 let again;
 
 do {
