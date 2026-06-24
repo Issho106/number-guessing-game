@@ -1,3 +1,7 @@
+/* Errors/Additional Functionality
+
+*/
+
 function generateRandomNumber() {
     return Number(Math.round(Math.random() * 100) + 1);
 } //Random number between 1 - 100
@@ -56,7 +60,7 @@ function getPlayerGuess() {
         if(guess < 1 || guess > 100){
             console.log("Make sure you choose a valid number between 1 - 100");
             isInvalid = true;
-        } else if (guess === null) {
+        } else if (guess === 0) {
             console.log("Please enter a number to guess, or any character to exit.");
             isInvalid = true;
         } else if (isNaN(guess)) { return NaN ;}
@@ -72,5 +76,5 @@ do {
     console.clear();
     game();
     again = prompt("Would you like to go again? (y/n):");
-}while(again.toLowerCase() == 'y');
+}while(again && again.toLowerCase() === 'y');
 
