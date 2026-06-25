@@ -1,5 +1,15 @@
 /* Errors/Additional Functionality
 
+=== Additional Functionality ===
+1 - Add a getScore function
+    > Based on how many guesses it took
+    > Time based?
+    > Difficulty of number?
+    > How close each guess was?
+
+=== Errors ===
+
+=== Other matters - Referenced by line ===
 */
 
 function generateRandomNumber() {
@@ -8,13 +18,14 @@ function generateRandomNumber() {
 
 //main game logic with counter
 function game() {
-    
+
     let randomNr = generateRandomNumber();
-    let count = 10;
+    let lives = 10;
+    let score = 1000;
 
     for (let i = 0; i < 10; i++) {
 
-        console.log(count + " tries left");
+        console.log(lives + " tries left");
 
         let pGuess = getPlayerGuess();
 
@@ -23,18 +34,19 @@ function game() {
             return;
         }
 
-        let res = checkGuess(pGuess, randomNr);
+        let result_ = checkGuess(pGuess, randomNr);
         
-        if (res == "CORRECT!") {
-            console.log(res + "You win the memory of once guessing a random number between 1-100 <3");
+        if (result_.correct) {
+            console.log(result_.message + " You win! | Score: " + score);
             return;
         }
         else {
-            console.log(res);
-            count--;
+            console.log(result_.message);
+            lives--; //lives remaining
+            score -= 100; //counter decrease for score
 
-            if (count == 0) {
-                console.log("You lose, the number was " + randomNr);
+            if (lives == 0) { //lives run out
+                console.log("You lose, the number was " + randomNr + " | Score: " + score);
             }
         }
     }
@@ -44,13 +56,22 @@ function game() {
 function checkGuess(_guess, _answer) {
 
     if (_guess > _answer) {
-        return _guess + " is wrong! Hint: You guessed high";
+        return {
+            correct: false,
+            message: _guess + " is wrong! Hint: You guessed high."
+        };
     }
     else if (_guess < _answer) {
-        return _guess + " is wrong! Hint: You guessed low";
+        return {
+            correct: false,
+            message: _guess + " is wrong! Hint: You guessed low."
+        };
     }
 
-    return "CORRECT!";
+    return {
+        correct: true,
+        message: "CORRECT!"
+    };
 }
 
 //repeatedly asks player to enter a valid number or character to exit
