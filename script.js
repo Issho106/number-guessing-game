@@ -13,7 +13,7 @@
 */
 
 function generateRandomNumber() {
-    return Number(Math.round(Math.random() * 100) + 1);
+    return Math.floor(Math.random() * 100) + 1;
 } //Random number between 1 - 100
 
 //main game logic with counter
