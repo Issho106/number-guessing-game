@@ -1,11 +1,6 @@
 /* Errors/Additional Functionality
 
 === Additional Functionality ===
-1 - Add a getScore function
-    > Based on how many guesses it took
-    > Time based?
-    > Difficulty of number?
-    > How close each guess was?
 
 === Errors ===
 
