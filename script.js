@@ -1,12 +1,3 @@
-/* Errors/Additional Functionality
-
-=== Additional Functionality ===
-
-=== Errors ===
-
-=== Other matters - Referenced by line ===
-*/
-
 function generateRandomNumber() {
     return Math.floor(Math.random() * 100) + 1;
 } //Random number between 1 - 100
