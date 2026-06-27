@@ -93,6 +93,7 @@ function getPlayerGuess() {
 let again;
 
 do {
+    alert("There's a secret in the console...");
     console.clear();
 
     game();
