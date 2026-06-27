@@ -1,8 +1,7 @@
 function generateRandomNumber() {
     return Math.floor(Math.random() * 100) + 1;
-} //Random number between 1 - 100
+}
 
-//main game logic with counter
 function game() {
 
     let randomNr = generateRandomNumber();
@@ -31,10 +30,10 @@ function game() {
         }
         else {
             console.log(result_.message);
-            lives--; //lives remaining
-            score -= 100; //counter decrease for score
+            lives--;
+            score -= 100;
 
-            if (lives == 0) { //lives run out
+            if (lives == 0) {
                 console.log("You lose, the number was " + randomNr + " | Score: " + score);
                 console.log("Your computer will be mine forever, or at least until you guess correctly!")
             }
@@ -42,7 +41,6 @@ function game() {
     }
 }
 
-//winning condition logic
 function checkGuess(_guess, _answer) {
 
     if (_guess > _answer) {
@@ -64,14 +62,13 @@ function checkGuess(_guess, _answer) {
     };
 }
 
-//repeatedly asks player to enter a valid number or character to exit
 function getPlayerGuess() {
 
     let isInvalid;
     let guess;
 
     do {
-        isInvalid = false; //resets on each iteration
+        isInvalid = false;
         let input = prompt("Guess a number between 1-100 (Type any character to exit):");
         
         if(input === null) {
@@ -82,7 +79,7 @@ function getPlayerGuess() {
 
         if (isNaN(guess)) { return null; }
         
-        if (guess < 1 || guess > 100) { //check for invalid entries
+        if (guess < 1 || guess > 100) { 
 
             console.log("Make sure you choose a valid number between 1 - 100");
             isInvalid = true;
@@ -93,7 +90,6 @@ function getPlayerGuess() {
     return guess;
 }
 
-//Main logic
 let again;
 
 do {
