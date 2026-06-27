@@ -24,14 +24,14 @@ function game() {
 
         console.log(lives + " tries left");
 
-        let pGuess = getPlayerGuess();
+        let playerGuess = getPlayerGuess();
 
-        if (isNaN(pGuess)) {
+        if (isNaN(playerGuess)) {
             console.log("Goodbye!");
             return;
         }
 
-        let result_ = checkGuess(pGuess, randomNr);
+        let result_ = checkGuess(playerGuess, randomNr);
         
         if (result_.correct) {
             console.log(result_.message + " You win! | Score: " + score);
