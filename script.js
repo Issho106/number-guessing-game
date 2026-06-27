@@ -17,7 +17,7 @@ function game() {
 
         let playerGuess = getPlayerGuess();
 
-        if (isNaN(playerGuess)) {
+        if (playerGuess === null) {
             console.log("Goodbye!");
             return;
         }
@@ -74,14 +74,19 @@ function getPlayerGuess() {
         isInvalid = false; //resets on each iteration
         let input = prompt("Guess a number between 1-100 (Type any character to exit):");
         
+        if(input === null) {
+            return null;
+        }
+
         guess = Number(input);
 
+        if (isNaN(guess)) { return null; }
+        
         if (guess < 1 || guess > 100) { //check for invalid entries
 
             console.log("Make sure you choose a valid number between 1 - 100");
             isInvalid = true;
         }
-        else if (isNaN(guess)) { return NaN ;}
 
     }while(isInvalid);
 
