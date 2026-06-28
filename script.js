@@ -99,5 +99,13 @@ do {
     game();
     again = prompt("Would you like to go again? (y/n):");
 
-} while (again && again.toLowerCase() === 'y');
+    if (again === null) again = 'n';
+
+    while (again.toLowerCase() !== 'y' && again.toLowerCase() !== 'n') {
+        again = prompt("Please make sure you type 'y' to play again or 'n' to exit:");
+        if (again === null) {
+             again = 'n';
+        }
+    }
+} while (again.toLowerCase() === 'y');
 
