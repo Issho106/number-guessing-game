@@ -93,7 +93,7 @@ function getPlayerGuess() {
 let again;
 
 do {
-    alert("There's a secret in the console... Open the dev tools (ctrl + shift + i) and go to console ");
+    alert("There's a secret in the console... Open the dev tools (ctrl + shift + i) and go to console. If the console messages don't show immediately, please quit the game and open the console, then hit refresh.");
     console.clear();
 
     game();
